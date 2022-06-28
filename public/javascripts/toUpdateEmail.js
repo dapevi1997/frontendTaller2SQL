@@ -24,19 +24,31 @@ const eventb = async (e) => {
 
     let email = form.email.value;
 
+    if (email != '') {
 
-    const res = await fetch(`http://localhost:8080/contact/email/${id}`, {
-        method: 'PATCH',
-        mode: 'cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-            'email': email,
-          
-        })
-    });
+        const res = await fetch(`http://localhost:8080/contact/email/${id}`, {
+            method: 'PATCH',
+            mode: 'cors',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({
+                'email': email,
+              
+            })
+        });
+        const result = await res.json();
+        const { status } = result;
+        console.log(status)
 
-    //const result = await res.json();
+        if (status == 500) {
+            alert('No se pudo actualizar el email');
+        }
+        
+    }else {
+        alert('No se puede dejar en blanco el campo email');
+    }
 
+    btnToUpdateEmail.disabled = true;
+    
 };
 /**
  * Creación de un evento click para el botón "Actualizar correo".

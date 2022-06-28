@@ -24,20 +24,28 @@ const eventb = async (e) => {
 
     let birthday = form.birthday.value;
 
+    if (birthday != '') {
+        const res = await fetch(`http://localhost:8080/contact/birthday/${id}`, {
+            method: 'PATCH',
+            mode: 'cors',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({
+                'birthday': birthday,
+              
+            })
+        });
+        const result = await res.json();
+        const { status } = result;
+        console.log(status)
 
-    const res = await fetch(`http://localhost:8080/contact/birthday/${id}`, {
-        method: 'PATCH',
-        mode: 'cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-            'birthday': birthday,
-          
-        })
-    });
-
-    //const result = await res.json();
-
-
+        if (status == 500) {
+            alert('No se pudo actualizar fecha');
+        }
+    } else {
+        alert('No se puede dejar en blanco el campo fecha de nacimiento');
+    }
+  
+    btnToUpdateBirthday.disabled = true;
 };
 /**
  * Creación de un evento click para el botón "Actualizar fecha".

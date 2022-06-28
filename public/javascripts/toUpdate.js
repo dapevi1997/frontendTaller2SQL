@@ -39,8 +39,15 @@ const eventb = async (e) => {
             'deleted': '0'
         })
     });
+    const result = await res.json();
+    const { status } = result;
+    console.log(status)
 
-    //const result = await res.json();
+    if (status == 500) {
+        alert('No se pudo actualizar contacto, datos no válidos');
+    }
+
+    btnToUpdate.disabled = true;
 
 };
 /**

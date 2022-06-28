@@ -83,6 +83,13 @@ const saveContact = async (e) => {
         })
 
     });
+    const result = await res.json();
+    const { status } = result;
+    console.log(status)
+
+    if (status == 500) {
+        alert('No se pudo guardar contacto, ingrese datos correctamente');
+    }
 
     window.location.href = "http://localhost:3000/";
 
