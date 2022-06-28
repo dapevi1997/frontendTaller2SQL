@@ -1,0 +1,45 @@
+<script defer src="javascripts/index.js"></script>
+<h1>Agenda de contactos</h1>
+
+
+<form id="form">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="name">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Teléfono</label>
+    <input type="text" class="form-control" id="number" >
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
+    <input type="text" class="form-control" id="email" >
+  </div>
+
+  
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Fecha de nacimiento</label>
+    <input type="text" class="form-control" id="birthday" >
+  </div>
+
+  <button type="submit" id="btnSaveContact" class="btn btn-primary">Guardar contacto</button>
+</form>
+
+<table class="table" id ="tableId">
+  <thead>
+    <tr>
+     
+      <th scope="col">Nombre</th>
+      <th scope="col">Teléfono</th>
+      <th scope="col">Correo electrónico</th>
+      <th scope="col">Fecha de nacimiento</th>
+      <th scope="col">Actualizar</th>
+      <th scope="col">Eliminar</th>
+    </tr>
+  </thead>
+  <tbody id="body">
+ 
+  </tbody>
+</table>
